@@ -1,24 +1,31 @@
 import bottle
-from bottle import Bottle, run, route, static_file, view, template, post, request
+from bottle import route, request, static_file, template, view
 import pymongo
 from pymongo import Connection
 
 connection = Connection('localhost', 27017)
 db = connection.test
 
-@bottle.route('/')
+@route('/')
+@view('views/index.tpl')
 def index():
 	blog = db.blog
-	blog_posts = blog.find()
-	return template('views/index.tpl', posts=blog_posts)
+	return dict(posts=blog.find())
 
-@bottle.route('/contact')
+@route('/comment', method='POST')
+def submit_comment():
+	return "Thanks!";
+
+@route('/contact')
+@view('views/contact.tpl')
 def contact():
-	return "";
+	return
 
-@bottle.route('/static/<filename>', name='static')
+@route('/static/<filename>', name='static')
 def server_static(filename):
 	return static_file(filename, root='static')
+
+
 
 
 bottle.run(host='localhost', port=8082)
