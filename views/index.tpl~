@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Blog</title>
-		<link rel="stylesheet" type="text/css" href="static/main.css" />
-		<script type="text/javascript" src="static/jquery-1.8.2.min.js"></script>
-		<script type="text/javascript">
-			function showCommentForm(id, sender) {
-				$("fieldset#" + id).show();
-				$("a#" + id).hide();
-			}
+%include shared/header title="Home Page"
 
-			function hideCommentForm(id) {
-				$("fieldset#" + id).hide();
-				$("a#" + id).show();
-			}
-	
-			$(function() {
 
-			});
-		</script>
-	</head>
 	<body>
 		<header>
-			<h1>Mongo Blog Application</h1>
+			<h1>Uninspiring Blog Application</h1>
 		</header>
 		<section id="intro">
 			<h2>Introduction</h2>
@@ -41,7 +22,7 @@
 						<q>{{comment['comment']}}</q>
 					</aside>
 					%end
-					<a id="{{post['_id']}}" class="show_comment" onclick="showCommentForm('{{post['_id']}}');" href="javascript:void(0);">Leave a comment...</a>
+					<a class="show_comment" onclick="showCommentForm('{{post['_id']}}', this);" href="javascript:void(0);">Leave a comment...</a>
 					<form action="/comment" method="POST">
 						<fieldset id="{{post['_id']}}">
 							<legend>Post a comment</legend>

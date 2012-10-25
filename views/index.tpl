@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Blog</title>
-		<link rel="stylesheet" type="text/css" href="static/main.css" />
-		<script type="text/javascript" src="static/jquery-1.8.2.min.js"></script>
-		<script type="text/javascript">
-			function showCommentForm(id, sender) {
-				$("#" + id).show();
-				$(sender).hide();
-			}
+%include shared/header title="Home Page"
 
-			function hideCommentForm(id) {
-
-			}
-	
-			$(function() {
-
-			});
-		</script>
-	</head>
 	<body>
 		<header>
-			<h1>Mongo Blog Application</h1>
+			<h1>Uninspiring Blog Application</h1>
 		</header>
 		<section id="intro">
 			<h2>Introduction</h2>
@@ -66,4 +47,5 @@
 			%end
 		</section>
 	</body>
-</html>
+
+%include shared/footer
