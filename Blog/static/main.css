@@ -1,0 +1,69 @@
+html {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Tahoma, sans-serif;
+	background: #f9f9f9;
+}
+
+body {
+	padding: 0 0 30px 0;
+	width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	box-shadow: 0 0 12px #e7e7e7;
+}
+
+section {
+	padding: 0 10px;
+}
+
+header {
+	background: #222;
+	padding: 25px 0;
+}
+
+header h1 {
+	display: block;
+	margin: 0 15px;
+	color: #fff;
+}
+
+a.show_comment {
+	text-decoration: none;
+	font-style: italic;
+}
+
+/************************************FORMS*/
+
+fieldset {
+	display: none;
+	width: 315px;
+}
+
+fieldset label {
+	display: inline-block;
+	width: 75px;
+	vertical-align: top;
+}
+
+fieldset input[type="text"] {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+fieldset .buttons {
+	display: block;
+	margin: 5px 0 0 auto;
+width: 145px;
+}
+
+fieldset textarea {
+	display: inline-block;
+	width: 230px;
+	height: 50px;
+}
+
+q {
+	font-weight: normal;
+	font-style: italic;
+}
