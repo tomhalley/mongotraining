@@ -1,7 +1,8 @@
 #include <includes/credentials.py>
 
 import bottle
-from bottle import route, request, static_file, template, view
+import json
+from bottle import route, request, static_file, template, view, debug
 import pymongo
 from pymongo import Connection
 
@@ -14,18 +15,24 @@ def index():
 	blog = db.blog
 	return dict(posts=blog.find())
 
-@route('/get_blog_posts')
-def get_blog():
+
+@route('/get_posts')
+def get_posts():
 	blog = db.blog
-	return dict(posts=blog.find())
+	posts=blog.find()
+	output = list(posts)
+	return json.dumps(output)
+
 
 @route('/comment', method='POST')
 def submit_comment():
 	return index()
 
+
 @route('/comment', method='POST')
 def submit_comment():
 	return "Thanks!";
+
 
 @route('/contact')
 @view('views/contact.tpl')
@@ -33,10 +40,10 @@ def contact():
 	return "Thanks!"
 
 
-
 @route('/static/<filename>', name='static')
 def server_static(filename):
 	return static_file(filename, root='static')
 
 
-bottle.run(host='localhost', port=8080)
+
+bottle.run(host='localhost', port=8080, debug=True)
