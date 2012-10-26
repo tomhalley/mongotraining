@@ -33,6 +33,15 @@ a.show_comment {
 	font-style: italic;
 }
 
+h4 {
+	display: inline;
+}
+
+q {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
 /************************************FORMS*/
 
 fieldset {

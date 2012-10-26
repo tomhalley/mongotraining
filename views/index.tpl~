@@ -1,6 +1,5 @@
 %include shared/header title="Home Page"
 
-
 	<body>
 		<header>
 			<h1>Uninspiring Blog Application</h1>
@@ -18,7 +17,7 @@
 					<h3>Comments</h3>
 					%for comment in post['comments']:
 					<aside>
-						<h4>{{comment['author']}} said:<h4>
+						<h4><a href="mailto:{{comment['email']}}">{{comment['author']}}</a> said:<h4>
 						<q>{{comment['comment']}}</q>
 					</aside>
 					%end
@@ -48,4 +47,5 @@
 			%end
 		</section>
 	</body>
-</html>
+
+%include shared/footer

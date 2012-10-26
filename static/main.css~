@@ -14,7 +14,7 @@ body {
 }
 
 section {
-	padding: 0 10px;
+	padding: 0 15px;
 }
 
 header {
@@ -31,6 +31,15 @@ header h1 {
 a.show_comment {
 	text-decoration: none;
 	font-style: italic;
+}
+
+h4 {
+	display: inline;
+}
+
+q {
+	display: inline-block;
+	margin-bottom: 10px;
 }
 
 /************************************FORMS*/
