@@ -1,6 +1,5 @@
 #include <includes/credentials.py>
 
-
 import bottle
 from bottle import route, request, static_file, template, view
 import pymongo
@@ -24,7 +23,9 @@ def get_blog():
 def submit_comment():
 	return index()
 
-
+@route('/comment', method='POST')
+def submit_comment():
+	return "Thanks!";
 
 @route('/contact')
 @view('views/contact.tpl')
@@ -36,8 +37,6 @@ def contact():
 @route('/static/<filename>', name='static')
 def server_static(filename):
 	return static_file(filename, root='static')
-
-
 
 
 bottle.run(host='localhost', port=8080)

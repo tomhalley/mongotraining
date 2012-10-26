@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>{{title}}</title>
 		<link rel="stylesheet" type="text/css" href="static/main.css" />
+=======
+<!doctype html>
+<html>
+	<head>
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="static/main.css" />
+>>>>>>> 172ad8885755c3a6e39e3a2b4ae433eef32d4e7d
 		<script type="text/javascript" src="static/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="static/knockout-2.2.0rc.debug.js"></script>
-		<script type="text/javascript" src="static/init.js"  defer="defer"></script>
+		<script type="text/javascript" src="static/init.js" defer="defer"></script>
 	</head>

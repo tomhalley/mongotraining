@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #include <includes/credentials.py>
 
 
+=======
+>>>>>>> 172ad8885755c3a6e39e3a2b4ae433eef32d4e7d
 import bottle
 from bottle import route, request, static_file, template, view
 import pymongo
@@ -12,6 +15,7 @@ db = connection.test
 @route('/')
 @view('views/index.tpl')
 def index():
+<<<<<<< HEAD
 	blog = db.blog
 	return dict(posts=blog.find())
 
@@ -25,6 +29,14 @@ def submit_comment():
 	return index()
 
 
+=======
+	blog=db.blog
+	return dict(posts = blog.find())
+
+@route('/comment', method='POST')
+def submit_comment():
+	return "Thanks!";
+>>>>>>> 172ad8885755c3a6e39e3a2b4ae433eef32d4e7d
 
 @route('/contact')
 @view('views/contact.tpl')
@@ -38,6 +50,9 @@ def server_static(filename):
 	return static_file(filename, root='static')
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 172ad8885755c3a6e39e3a2b4ae433eef32d4e7d
 bottle.run(host='localhost', port=8080)
