@@ -1,0 +1,15 @@
+function BlogViewModel() {
+	this.showCommentForm = function() {
+
+	}
+
+	this.hideCommentForm = function() {
+
+	}
+
+	this.submitComment = function() {
+
+	}	
+}
+
+ko.applyBindings(new BlogViewModel());
