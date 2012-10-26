@@ -1,0 +1,37 @@
+{
+	"_id" : ObjectId("5087f69a1c05b1e52936f156"),
+	"title" : "How a Google Headhunter’s E-Mail Unraveled a Massive Net Security Hole",
+	"content" : "It was a strange e-mail, coming from a job recruiter at Google, asking Zachary Harris if he was interested in a position as a site-reliability engineer.",
+	"date_posted" : "20/05/2012",
+	"comments" : [
+		{
+			"comment" : "Nice Find!",
+			"author" : "Bob",
+			"email" : "bob@hotmail.com",
+			"date_posted" : "20/05/2012"
+		}
+	],
+	"tags" : [
+		"news",
+		"wired"
+	]
+}
+{
+	"_id" : ObjectId("508800f51c05b1e52936f157"),
+	"title" : "What is Lorem Ipsum?",
+	"content" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+	"date_posted" : "22/05/2012",
+	"comments" : [
+		{
+			"comment" : "Fascinating!",
+			"author" : "Tom",
+			"email" : "tom@hotmail.com",
+			"date_posted" : "22/05/2012"
+		}
+	],
+	"tags" : [
+		"news",
+		"wired"
+	]
+}
+
