@@ -16,13 +16,14 @@
 					<p>{{post['content']}}</p>
 					<h3>Comments</h3>
 					%for comment in post['comments']:
-					<aside>
-						<h4>{{comment['author']}} said:<h4>
-						<q>{{comment['comment']}}</q>
-					</aside>
+                        <aside>
+                            <h4>{{comment['author']}} said:<h4>
+                            <q>{{comment['comment']}}</q>
+                        </aside>
 					%end
-					<a class="show_comment" onclick="showCommentForm('{{post['_id']}}', this);" href="javascript:void(0);">Leave a comment...</a>
-					<form action="/comment" method="POST">
+					
+					<form action="/comment" method="POST" data-bind="visible: false">
+                        <a class="show_comment" href="#" data-bind="click: showComments">Leave a comment...</a>
 						<fieldset id="{{post['_id']}}">
 							<legend>Post a comment</legend>
 							
@@ -39,7 +40,7 @@
 
 							<div class="buttons">
 								<input type="submit" value="Submit" />
-								<input type="button" onclick="hideCommentForm('{{post['_id']}}');" value="Cancel">
+								<input type="button" data-bind="click: hideComments" value="Cancel">
 							</div>
 						</fieldset>
 					</form>

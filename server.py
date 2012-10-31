@@ -20,10 +20,14 @@ def index():
 @route('/get_posts')
 def get_posts():
 	blog = db.blog
-	posts=blog.find()
+	posts = blog.find()
 	output = list(posts)
 	return json.dumps(output, cls=MongoEncoder)
 
+
+@route('/add_comment')
+def add_comment():
+    
 
 @route('/comment', method='POST')
 def submit_comment():
