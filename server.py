@@ -1,9 +1,10 @@
 #include <includes/credentials.py>
+#include <includes/mongo_encoder.py>
 
 import bottle
+from bottle import route, static_file, view
+from includes.mongo_encoder import MongoEncoder
 import json
-from bottle import route, request, static_file, template, view, debug
-import pymongo
 from pymongo import Connection
 
 connection = Connection('localhost', 27017)
@@ -21,7 +22,7 @@ def get_posts():
 	blog = db.blog
 	posts=blog.find()
 	output = list(posts)
-	return json.dumps(output)
+	return json.dumps(output, cls=MongoEncoder)
 
 
 @route('/comment', method='POST')
