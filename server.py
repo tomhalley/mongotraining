@@ -25,10 +25,6 @@ def get_posts():
 	return json.dumps(output, cls=MongoEncoder)
 
 
-@route('/add_comment')
-def add_comment():
-    
-
 @route('/comment', method='POST')
 def submit_comment():
 	return index()

@@ -1,9 +1,10 @@
 #include <includes/credentials.py>
+#include <includes/mongo_encoder.py>
 
 import bottle
+from bottle import route, static_file, view
+from includes.mongo_encoder import MongoEncoder
 import json
-from bottle import route, request, static_file, template, view, debug
-import pymongo
 from pymongo import Connection
 
 connection = Connection('localhost', 27017)
@@ -19,10 +20,14 @@ def index():
 @route('/get_posts')
 def get_posts():
 	blog = db.blog
-	posts=blog.find()
+	posts = blog.find()
 	output = list(posts)
-	return json.dumps(output)
+	return json.dumps(output, cls=MongoEncoder)
 
+
+@route('/add_comment')
+def add_comment():
+    
 
 @route('/comment', method='POST')
 def submit_comment():
@@ -42,7 +47,7 @@ def contact():
 
 @route('/static/<filename>', name='static')
 def server_static(filename):
-	return static_file(filename, root='static', debug=True)
+	return static_file(filename, root='static')
 
 
 

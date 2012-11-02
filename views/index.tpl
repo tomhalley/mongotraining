@@ -10,24 +10,23 @@
 		</section>
 		<section id="blog">
 			<h2>Blog</h2>
-			%for post in posts:
-				<article>
-					<h3>{{post['title']}}</h3>
-					<p>{{post['content']}}</p>
+				<article data-bind="foreach: posts" >
+					<h3 data-bind="text: title"></h3>
+					<p data-bind="text: content"></p>
 					<h3>Comments</h3>
-					%for comment in post['comments']:
+					<footer data-bind="foreach: comments">
                         <aside>
-                            <h4>{{comment['author']}} said:<h4>
-                            <q>{{comment['comment']}}</q>
+                            <h4 data-bind="text: author"><h4>
+                            <q data-bind="text: comment"></q>
                         </aside>
-					%end
+					</footer>
 					
-					<form action="/comment" method="POST" data-bind="visible: false">
-                        <a class="show_comment" href="#" data-bind="click: showComments">Leave a comment...</a>
-						<fieldset id="{{post['_id']}}">
+					<form action="/comment" method="POST">
+                        <a class="show_comment" href="#" data-bind="click: toggleComments">Leave a comment...</a>
+						<fieldset data-bind="attr: { id: id }, visible: commentsVisible">
 							<legend>Post a comment</legend>
 							
-							<input type="hidden" name="_id" value="{{post['_id']}}" />
+							<input data-bind="attr: { value: id }" type="hidden" name="_id"/>
 
 							<label for="name">Name:</label>
 							<input type="text" name="name" id="name" />
@@ -40,12 +39,11 @@
 
 							<div class="buttons">
 								<input type="submit" value="Submit" />
-								<input type="button" data-bind="click: hideComments" value="Cancel">
+								<input type="button" value="Cancel">
 							</div>
 						</fieldset>
 					</form>
 				</article>
-			%end
 		</section>
 	</body>
 

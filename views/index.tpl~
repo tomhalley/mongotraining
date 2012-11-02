@@ -10,23 +10,23 @@
 		</section>
 		<section id="blog">
 			<h2>Blog</h2>
-			%for post in posts:
-				<article>
-					<h3>{{post['title']}}</h3>
-					<p>{{post['content']}}</p>
+				<article data-bind="foreach: posts" >
+					<h3 data-bind="text: title"></h3>
+					<p data-bind="text: content"></p>
 					<h3>Comments</h3>
-					%for comment in post['comments']:
-					<aside>
-						<h4><a href="mailto:{{comment['email']}}">{{comment['author']}}</a> said:<h4>
-						<q>{{comment['comment']}}</q>
-					</aside>
-					%end
-					<a class="show_comment" onclick="showCommentForm('{{post['_id']}}', this);" href="javascript:void(0);">Leave a comment...</a>
+					<footer data-bind="foreach: comments">
+                        <aside>
+                            <h4 data-bind="text: author"><h4>
+                            <q data-bind="text: comment"></q>
+                        </aside>
+					</footer>
+					
 					<form action="/comment" method="POST">
-						<fieldset id="{{post['_id']}}">
+                        <a class="show_comment" href="#" data-bind="click: >Leave a comment...</a>
+						<fieldset data-bind="attr: { id: id }, visible: commentsVisible">
 							<legend>Post a comment</legend>
 							
-							<input type="hidden" name="_id" value="{{post['_id']}}" />
+							<input data-bind="attr: { value: id }" type="hidden" name="_id"/>
 
 							<label for="name">Name:</label>
 							<input type="text" name="name" id="name" />
@@ -39,12 +39,11 @@
 
 							<div class="buttons">
 								<input type="submit" value="Submit" />
-								<input type="button" onclick="hideCommentForm('{{post['_id']}}');" value="Cancel">
+								<input type="button" value="Cancel">
 							</div>
 						</fieldset>
 					</form>
 				</article>
-			%end
 		</section>
 	</body>
 
